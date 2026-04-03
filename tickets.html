@@ -32,9 +32,188 @@
       text-transform: uppercase;
       opacity: 0.5;
       text-decoration: none;
+      transition: opacity 0.2s ease;
     }
 
     .top-left:hover {
+      opacity: 1;
+    }
+
+    .top-right {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.5rem;
+      z-index: 10;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: #000;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    /* ALBUM STRIP */
+    .album-strip-wrapper {
+      position: fixed;
+      top: 2.5rem;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .album-strip-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: #000;
+      opacity: 0.35;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      text-transform: lowercase;
+    }
+
+    .album-strip {
+      display: flex;
+      gap: 8px;
+      width: max-content;
+      animation: scrollLeft 18s linear infinite;
+    }
+
+    .album-strip img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 2px;
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+
+    @keyframes scrollLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* MAIN CONTENT */
+    .content {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      gap: 1rem;
+      z-index: 3;
+    }
+
+    .message {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      color: #000;
+      opacity: 0.6;
+      text-transform: lowercase;
+    }
+
+    .stay-updated {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      color: #000;
+      font-weight: 700;
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
+
+    .stay-updated:hover {
+      opacity: 0.4;
+    }
+
+    /* FOOTER */
+    .footer {
+      position: fixed;
+      bottom: 1.25rem;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      z-index: 10;
+      padding: 0 1.5rem;
+    }
+
+    .footer-link {
+      color: #000;
+      text-decoration: none;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      opacity: 0.5;
+      transition: opacity 0.2s ease;
+    }
+
+    .footer-link:hover {
+      opacity: 1;
+    }
+
+    .footer-copy {
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      color: #000;
+      opacity: 0.35;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="top-left">← BACK</a>
+  <div class="top-right">CONCLAVE™</div>
+
+  <!-- ALBUM STRIP -->
+  <div class="album-strip-wrapper">
+    <p class="album-strip-label">currently playing</p>
+    <div class="album-strip" id="album-strip">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a2/38/52/a23852d9-21e4-5ac5-6d75-2682fecdda46/18UMGIM26096.rgb.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Video126/v4/82/39/c8/8239c8cb-c219-9562-6840-4648c5ff83c9/Jobd3bf2691-9d06-4821-88a9-fe66721e5908-130339225-PreviewImage_preview_image_nonvideo_sdr-Time1648752909560.png/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/4b/38/d1/4b38d146-381d-ace2-73df-24074576e62b/656465138828_cover.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Video126/v4/2b/cb/c5/2bcbc5fb-590a-a991-00a9-23e09da46860/Jobcca42104-faad-4d2d-8766-c7cafe52cdf0-153498700-PreviewImage_preview_image_nonvideo_sdr-Time1690571006394.png/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d0/ce/64/d0ce644d-36b3-e9dd-af89-6832e1581257/23UM1IM16968.rgb.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/bb/45/68/bb4568f3-68cd-619d-fbcb-4e179916545d/BlondCover-Final.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/48/d5/d7/48d5d7c8-a2b8-7f93-553b-d0919d89670f/235524.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/48/3f/42/483f423c-56c3-597f-90ab-f1c875af89de/5034644741581.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/0c/06/05/0c060581-6242-6a2a-a677-20170f2cf8da/886447710180.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Video124/v4/bc/42/5e/bc425e53-6f91-5c1e-e389-af88a67cd93a/Job0ab5564a-974f-4000-8ad2-9ddd219d6bfa-110868651-PreviewImage_preview_image_nonvideo_sdr-Time1617742618892.png/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f3/ae/76/f3ae7616-7e2d-b5bc-90f1-c9aa9916dce2/24UMGIM88179.rgb.jpg/632x632bb.webp" alt="album" />
+      <!-- DUPLICATED FOR SEAMLESS LOOP -->
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a2/38/52/a23852d9-21e4-5ac5-6d75-2682fecdda46/18UMGIM26096.rgb.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Video126/v4/82/39/c8/8239c8cb-c219-9562-6840-4648c5ff83c9/Jobd3bf2691-9d06-4821-88a9-fe66721e5908-130339225-PreviewImage_preview_image_nonvideo_sdr-Time1648752909560.png/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/4b/38/d1/4b38d146-381d-ace2-73df-24074576e62b/656465138828_cover.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Video126/v4/2b/cb/c5/2bcbc5fb-590a-a991-00a9-23e09da46860/Jobcca42104-faad-4d2d-8766-c7cafe52cdf0-153498700-PreviewImage_preview_image_nonvideo_sdr-Time1690571006394.png/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d0/ce/64/d0ce644d-36b3-e9dd-af89-6832e1581257/23UM1IM16968.rgb.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/bb/45/68/bb4568f3-68cd-619d-fbcb-4e179916545d/BlondCover-Final.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/48/d5/d7/48d5d7c8-a2b8-7f93-553b-d0919d89670f/235524.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/48/3f/42/483f423c-56c3-597f-90ab-f1c875af89de/5034644741581.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/0c/06/05/0c060581-6242-6a2a-a677-20170f2cf8da/886447710180.jpg/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Video124/v4/bc/42/5e/bc425e53-6f91-5c1e-e389-af88a67cd93a/Job0ab5564a-974f-4000-8ad2-9ddd219d6bfa-110868651-PreviewImage_preview_image_nonvideo_sdr-Time1617742618892.png/632x632bb.webp" alt="album" />
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f3/ae/76/f3ae7616-7e2d-b5bc-90f1-c9aa9916dce2/24UMGIM88179.rgb.jpg/632x632bb.webp" alt="album" />
+    </div>
+  </div>
+
+  <main class="content">
+    <p class="message">tickets are currently not available</p>
+    <a href="https://www.eventbrite.com.au/e/conclave-rave-sydney-0703-tickets-1984103267283#organizer-card" target="_blank" class="stay-updated">stay updated</a>
+  </main>
+
+  <footer class="footer">
+    <a href="https://instagram.com/conclave.rave/" target="_blank" class="footer-link">INSTAGRAM</a>
+    <a href="#" target="_blank" class="footer-link">TIKTOK</a>
+    <p class="footer-copy">© CONCLAVE 2026</p>
+  </footer>
+
+</body>
+</html>    .top-left:hover {
       opacity: 1;
     }
 
