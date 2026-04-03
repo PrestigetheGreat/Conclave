@@ -1,5 +1,13 @@
-const video = document.querySelector('.video-slide');
-video.play();
+const video = document.getElementById('bg-video');
+
+video.addEventListener('canplay', function () {
+  video.play().catch(function () {
+    video.muted = true;
+    video.play();
+  });
+});
+
+video.load();
 
 const ticket = document.querySelector('.floating-ticket');
 let x = Math.random() * (window.innerWidth - 120);
