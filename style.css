@@ -142,8 +142,6 @@ html, body {
   color: #000;
   text-decoration: none;
   opacity: 0.6;
-  border-bottom: 1px solid rgba(0,0,0,0.3);
-  padding-bottom: 2px;
   transition: opacity 0.2s ease;
 }
 
