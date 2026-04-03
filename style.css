@@ -148,6 +148,8 @@ html, body {
 
 .floating-ticket {
   position: fixed;
+  top: 50px;
+  left: 50px;
   z-index: 100;
   font-family: 'Courier Prime', Courier, monospace;
   font-size: 0.65rem;
