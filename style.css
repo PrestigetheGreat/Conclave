@@ -139,6 +139,27 @@ body {
   opacity: 0.35;
 }
 
+/* FLOATING TICKETS BUTTON */
+.floating-ticket {
+  position: fixed;
+  z-index: 10;
+  font-family: 'Courier Prime', Courier, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: #000;
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.4);
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.7);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.floating-ticket:hover {
+  background: #000;
+  color: #fff;
+}
+
 @media (max-width: 600px) {
   .footer {
     gap: 1rem;
