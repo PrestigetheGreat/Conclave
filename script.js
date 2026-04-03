@@ -1,19 +1,21 @@
 const video = document.getElementById('bg-video');
 
-video.addEventListener('canplay', function () {
+document.addEventListener('DOMContentLoaded', function () {
+  video.muted = true;
   video.play().catch(function () {
-    video.muted = true;
-    video.play();
+    console.log('Autoplay blocked');
   });
 });
 
-video.load();
+window.addEventListener('click', function () {
+  video.play();
+}, { once: true });
 
 const ticket = document.querySelector('.floating-ticket');
-let x = Math.random() * (window.innerWidth - 120);
-let y = Math.random() * (window.innerHeight - 50);
-let dx = 0.6;
-let dy = 0.6;
+let x = 50;
+let y = 50;
+let dx = 0.8;
+let dy = 0.8;
 
 function moveTicket() {
   x += dx;
