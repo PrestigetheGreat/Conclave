@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CONCLAVE — TICKETS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      color: #000;
+      font-family: 'Courier Prime', Courier, monospace;
+      overflow: hidden;
+    }
+
+    .top-left {
+      position: fixed;
+      top: 1.25rem;
+      left: 1.5rem;
+      z-index: 10;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: #000;
+      text-transform: uppercase;
+      opacity: 0.5;
+      text-decoration: none;
+    }
+
+    .top-left:hover {
+      opacity: 1;
+    }
+
+    .top-right {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.5rem;
+      z-index: 10;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: #000;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    .content {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      gap: 1rem;
+    }
+
+    .message {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      color: #000;
+      opacity: 0.6;
+      text-transform: lowercase;
+    }
+
+    .stay-updated {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      color: #000;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
+
+    .stay-updated:hover {
+      opacity: 0.5;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 1.25rem;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      z-index: 10;
+      padding: 0 1.5rem;
+    }
+
+    .footer-link {
+      color: #000;
+      text-decoration: none;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      opacity: 0.5;
+      transition: opacity 0.2s ease;
+    }
+
+    .footer-link:hover {
+      opacity: 1;
+    }
+
+    .footer-copy {
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      color: #000;
+      opacity: 0.35;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="top-left">← BACK</a>
+  <div class="top-right">CONCLAVE™</div>
+
+  <main class="content">
+    <p class="message">tickets are currently not available</p>
+    <a href="https://www.eventbrite.com.au/e/conclave-rave-sydney-0703-tickets-1984103267283#organizer-card" target="_blank" class="stay-updated">stay updated</a>
+  </main>
+
+  <footer class="footer">
+    <a href="https://instagram.com/conclave.rave/" target="_blank" class="footer-link">INSTAGRAM</a>
+    <a href="#" target="_blank" class="footer-link">TIKTOK</a>
+    <p class="footer-copy">© CONCLAVE 2026</p>
+  </footer>
+
+</body>
+</html>
