@@ -124,6 +124,37 @@ html, body {
   opacity: 0.55;
 }
 
+/* ALBUM STRIP */
+.album-strip-wrapper {
+  position: fixed;
+  bottom: 5.5rem;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.album-strip {
+  display: flex;
+  gap: 8px;
+  width: max-content;
+  animation: scrollLeft 18s linear infinite;
+}
+
+.album-strip img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 2px;
+  flex-shrink: 0;
+  opacity: 0.75;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* PLAYLIST LINK */
 .bottom-links {
   position: fixed;
@@ -208,10 +239,10 @@ html, body {
   color: #fff;
 }
 
-/* HIDE CAROUSEL ON MOBILE */
+/* MOBILE */
 @media (max-width: 768px) {
   .carousel-wrapper {
-    display: none;
+    width: 80px;
   }
 
   .footer {
