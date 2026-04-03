@@ -101,17 +101,10 @@ body {
   color: rgba(0,0,0,0.3);
 }
 
-.logo-placeholder::before {
-  content: 'LOGO';
-}
-
 .logo {
   width: 90px;
   height: auto;
-}
-
-.logo.hidden {
-  display: none;
+  margin-bottom: 1rem;
 }
 
 /* BRAND NAME */
