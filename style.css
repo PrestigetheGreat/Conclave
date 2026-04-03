@@ -55,11 +55,11 @@ html, body {
 }
 
 .carousel-wrapper.left {
-  left: 1.5rem;
+  left: 0;
 }
 
 .carousel-wrapper.right {
-  right: 1.5rem;
+  right: 0;
 }
 
 .carousel-wrapper.visible {
