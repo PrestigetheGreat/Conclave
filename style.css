@@ -140,8 +140,9 @@ html, body {
   font-size: 0.7rem;
   letter-spacing: 0.3em;
   color: #000;
-  text-decoration: none;
-  border-bottom: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
   opacity: 0.6;
   transition: opacity 0.2s ease;
 }
