@@ -9,31 +9,31 @@ document.addEventListener('DOMContentLoaded', function () {
   video.play().catch(function () {
     console.log('Autoplay blocked');
   });
-  carouselLeft.play();
-  carouselRight.play();
+  if (carouselLeft) carouselLeft.play();
+  if (carouselRight) carouselRight.play();
 });
 
 window.addEventListener('click', function () {
   video.play();
-  carouselLeft.play();
-  carouselRight.play();
+  if (carouselLeft) carouselLeft.play();
+  if (carouselRight) carouselRight.play();
 }, { once: true });
 
 let showLeft = true;
 
-leftWrapper.classList.add('visible');
-rightWrapper.classList.remove('visible');
+if (leftWrapper) leftWrapper.classList.add('visible');
+if (rightWrapper) rightWrapper.classList.remove('visible');
 
 setInterval(function () {
   if (showLeft) {
-    leftWrapper.classList.remove('visible');
+    if (leftWrapper) leftWrapper.classList.remove('visible');
     setTimeout(function () {
-      rightWrapper.classList.add('visible');
+      if (rightWrapper) rightWrapper.classList.add('visible');
     }, 400);
   } else {
-    rightWrapper.classList.remove('visible');
+    if (rightWrapper) rightWrapper.classList.remove('visible');
     setTimeout(function () {
-      leftWrapper.classList.add('visible');
+      if (leftWrapper) leftWrapper.classList.add('visible');
     }, 400);
   }
   showLeft = !showLeft;
@@ -58,4 +58,4 @@ function moveTicket() {
   requestAnimationFrame(moveTicket);
 }
 
-moveTicket();
+if (ticket) moveTicket();
