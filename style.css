@@ -139,7 +139,6 @@ body {
   opacity: 0.35;
 }
 
-/* FLOATING TICKETS BUTTON */
 .floating-ticket {
   position: fixed;
   z-index: 10;
