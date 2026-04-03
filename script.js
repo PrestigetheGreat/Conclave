@@ -1,15 +1,43 @@
 const video = document.getElementById('bg-video');
+const carouselLeft = document.getElementById('carousel-left');
+const carouselRight = document.getElementById('carousel-right');
+const leftWrapper = document.getElementById('carousel-left-wrapper');
+const rightWrapper = document.getElementById('carousel-right-wrapper');
 
 document.addEventListener('DOMContentLoaded', function () {
   video.muted = true;
   video.play().catch(function () {
     console.log('Autoplay blocked');
   });
+  carouselLeft.play();
+  carouselRight.play();
 });
 
 window.addEventListener('click', function () {
   video.play();
+  carouselLeft.play();
+  carouselRight.play();
 }, { once: true });
+
+let showLeft = true;
+
+leftWrapper.classList.add('visible');
+rightWrapper.classList.remove('visible');
+
+setInterval(function () {
+  if (showLeft) {
+    leftWrapper.classList.remove('visible');
+    setTimeout(function () {
+      rightWrapper.classList.add('visible');
+    }, 400);
+  } else {
+    rightWrapper.classList.remove('visible');
+    setTimeout(function () {
+      leftWrapper.classList.add('visible');
+    }, 400);
+  }
+  showLeft = !showLeft;
+}, 2000);
 
 const ticket = document.querySelector('.floating-ticket');
 let x = 50;
