@@ -47,7 +47,7 @@ html, body {
   top: 2.5rem;
   bottom: 2.5rem;
   width: 160px;
-  z-index: 1;
+  z-index: 2;
   opacity: 0;
   transition: opacity 0.4s ease;
   border-radius: 4px;
@@ -107,7 +107,7 @@ html, body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,14 +124,14 @@ html, body {
   opacity: 0.55;
 }
 
-/* ALBUM STRIP */
+/* ALBUM STRIP — sits behind carousel videos */
 .album-strip-wrapper {
   position: fixed;
   bottom: 5.5rem;
   left: 0;
   width: 100%;
   overflow: hidden;
-  z-index: 3;
+  z-index: 1;
 }
 
 .album-strip {
@@ -158,7 +158,7 @@ html, body {
 /* PLAYLIST LINK */
 .bottom-links {
   position: fixed;
-  bottom: 3.5rem;
+  bottom: 2rem;
   left: 0;
   width: 100%;
   display: flex;
@@ -251,6 +251,6 @@ html, body {
   }
 
   .bottom-links {
-    bottom: 5rem;
+    bottom: 3.5rem;
   }
 }
