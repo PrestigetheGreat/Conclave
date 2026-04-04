@@ -13,7 +13,6 @@ html, body {
   overflow: hidden;
 }
 
-/* VIDEO */
 .video-container {
   position: fixed;
   top: 0;
@@ -41,7 +40,6 @@ html, body {
   background: rgba(255, 255, 255, 0.72);
 }
 
-/* TOP CORNERS */
 .top-left {
   position: fixed;
   top: 1.25rem;
@@ -66,7 +64,6 @@ html, body {
   opacity: 0.5;
 }
 
-/* DIVIDER A — under AUS 2026 / CONCLAVE™ */
 .divider-a {
   position: fixed;
   top: 3rem;
@@ -77,7 +74,6 @@ html, body {
   z-index: 10;
 }
 
-/* TAGLINE — centred in the main open zone */
 .content {
   position: fixed;
   top: 3rem;
@@ -99,10 +95,8 @@ html, body {
   opacity: 0.55;
 }
 
-/* BOTTOM BLOCK — contains divider-b, album strip, divider-c, playlist, footer */
-/* All positioned from bottom so they never conflict regardless of screen size */
+/* BOTTOM SECTION — all anchored from bottom, never conflicts */
 
-/* DIVIDER B — top margin above album covers */
 .divider-b {
   position: fixed;
   bottom: 9rem;
@@ -113,10 +107,11 @@ html, body {
   z-index: 10;
 }
 
-/* ALBUM STRIP — strictly contained between divider-b and divider-c */
+/* Album strip perfectly centred between divider-b (9rem) and divider-c (4.5rem) */
+/* Gap = 4.5rem. Strip height = 75px ≈ 4.7rem. Midpoint = 6.75rem from bottom */
 .album-strip-wrapper {
   position: fixed;
-  bottom: 5.5rem;
+  bottom: 5.25rem;
   left: 0;
   width: 100%;
   height: 75px;
@@ -124,7 +119,6 @@ html, body {
   z-index: 1;
   display: flex;
   align-items: center;
-  padding: 8px 0;
 }
 
 .album-strip {
@@ -149,10 +143,9 @@ html, body {
   100% { transform: translateX(-50%); }
 }
 
-/* DIVIDER C — bottom margin below album covers */
 .divider-c {
   position: fixed;
-  bottom: 4.5rem;
+  bottom: 4rem;
   left: 0;
   width: 100%;
   height: 0.5px;
@@ -160,10 +153,9 @@ html, body {
   z-index: 10;
 }
 
-/* PLAYLIST LINK */
 .bottom-links {
   position: fixed;
-  bottom: 3rem;
+  bottom: 2.75rem;
   left: 0;
   width: 100%;
   display: flex;
@@ -187,7 +179,6 @@ html, body {
   opacity: 1;
 }
 
-/* FOOTER */
 .footer {
   position: fixed;
   bottom: 1.25rem;
@@ -221,7 +212,6 @@ html, body {
   opacity: 0.35;
 }
 
-/* FLOATING TICKET */
 .floating-ticket {
   position: fixed;
   z-index: 100;
@@ -242,27 +232,15 @@ html, body {
   color: #fff;
 }
 
-/* MOBILE — only adjust sizes, never positions */
-.album-strip-wrapper {
-  height: 55px;
-  padding: 0.4rem 0;
-}
+/* MOBILE — only size changes, zero position changes */
+@media (max-width: 768px) {
+  .album-strip-wrapper {
+    height: 55px;
+  }
 
-.album-strip img {
-  width: 55px;
-  height: 55px;
-}
-
-.divider-b {
-  bottom: 8.75rem;
-}
-
-.divider-c {
-  bottom: 4.25rem;
-}
-
-  .bottom-links {
-    bottom: 3.25rem;
+  .album-strip img {
+    width: 55px;
+    height: 55px;
   }
 
   .footer {
