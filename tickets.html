@@ -51,9 +51,20 @@
       opacity: 0.5;
     }
 
+    .top-divider {
+      position: fixed;
+      top: 3rem;
+      left: 0;
+      width: 100%;
+      height: 0.5px;
+      background: rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+
+    /* ALBUM STRIP */
     .album-strip-wrapper {
       position: fixed;
-      top: 2.5rem;
+      top: 3.5rem;
       left: 0;
       width: 100%;
       overflow: hidden;
@@ -91,6 +102,7 @@
       100% { transform: translateX(-50%); }
     }
 
+    /* TICKETS MESSAGE */
     .content {
       position: fixed;
       top: 0;
@@ -129,6 +141,75 @@
       opacity: 0.4;
     }
 
+    /* DECK OF CARDS */
+    .deck-section {
+      position: fixed;
+      bottom: 4.5rem;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      z-index: 5;
+      height: 220px;
+    }
+
+    .deck {
+      position: relative;
+      width: 120px;
+      height: 180px;
+    }
+
+    .card {
+      position: absolute;
+      width: 120px;
+      height: 180px;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.35s ease, z-index 0s, box-shadow 0.35s ease;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card:nth-child(1) {
+      transform: rotate(-8deg) translateX(-80px);
+      z-index: 1;
+    }
+
+    .card:nth-child(2) {
+      transform: rotate(-4deg) translateX(-40px);
+      z-index: 2;
+    }
+
+    .card:nth-child(3) {
+      transform: rotate(0deg) translateX(0px);
+      z-index: 3;
+    }
+
+    .card:nth-child(4) {
+      transform: rotate(4deg) translateX(40px);
+      z-index: 2;
+    }
+
+    .card:nth-child(5) {
+      transform: rotate(8deg) translateX(80px);
+      z-index: 1;
+    }
+
+    .card:hover {
+      transform: rotate(0deg) translateX(0px) scale(1.8) translateY(-20px) !important;
+      z-index: 100 !important;
+      box-shadow: 8px 8px 30px rgba(0,0,0,0.25);
+    }
+
+    /* FOOTER */
     .footer {
       position: fixed;
       bottom: 1.25rem;
@@ -161,13 +242,26 @@
       color: #000;
       opacity: 0.35;
     }
+
+    @media (max-width: 600px) {
+      .card:hover {
+        transform: rotate(0deg) translateX(0px) scale(1.4) translateY(-20px) !important;
+      }
+
+      .footer {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
   </style>
 </head>
 <body>
 
   <a href="index.html" class="top-left">← BACK</a>
   <div class="top-right">CONCLAVE™</div>
+  <div class="top-divider"></div>
 
+  <!-- ALBUM STRIP -->
   <div class="album-strip-wrapper">
     <p class="album-strip-label">currently playing</p>
     <div class="album-strip">
@@ -196,11 +290,34 @@
     </div>
   </div>
 
+  <!-- TICKETS MESSAGE -->
   <main class="content">
-    <p class="message">Tickets not yet allocated</p>
+    <p class="message">No tickets allocated</p>
     <a href="https://www.eventbrite.com.au/e/conclave-rave-sydney-0703-tickets-1984103267283#organizer-card" target="_blank" class="stay-updated">stay updated</a>
   </main>
 
+  <!-- DECK OF CARDS -->
+  <div class="deck-section">
+    <div class="deck">
+      <div class="card">
+        <img src="event1.jpg" alt="Conclave event" />
+      </div>
+      <div class="card">
+        <img src="event2.jpg" alt="Conclave event" />
+      </div>
+      <div class="card">
+        <img src="event3.jpg" alt="Conclave event" />
+      </div>
+      <div class="card">
+        <img src="event4.jpg" alt="Conclave event" />
+      </div>
+      <div class="card">
+        <img src="event5.jpg" alt="Conclave event" />
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <a href="https://instagram.com/conclave.rave/" target="_blank" class="footer-link">INSTAGRAM</a>
     <a href="#" target="_blank" class="footer-link">TIKTOK</a>
