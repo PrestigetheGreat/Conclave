@@ -79,7 +79,7 @@ html, body {
   top: 3rem;
   left: 0;
   width: 100vw;
-  bottom: 11rem;
+  bottom: 12rem;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -95,11 +95,10 @@ html, body {
   opacity: 0.55;
 }
 
-/* BOTTOM SECTION — all anchored from bottom, never conflicts */
-
+/* DIVIDER B — top margin above album covers */
 .divider-b {
   position: fixed;
-  bottom: 9rem;
+  bottom: 10rem;
   left: 0;
   width: 100%;
   height: 0.5px;
@@ -107,11 +106,13 @@ html, body {
   z-index: 10;
 }
 
-/* Album strip perfectly centred between divider-b (9rem) and divider-c (4.5rem) */
-/* Gap = 4.5rem. Strip height = 75px ≈ 4.7rem. Midpoint = 6.75rem from bottom */
+/* ALBUM STRIP — centred between divider-b and divider-c */
+/* divider-b = 10rem, divider-c = 5rem, gap = 5rem */
+/* strip height = 75px ≈ 4.7rem, midpoint from bottom = 7.35rem */
+/* wrapper bottom = 7.35 - 2.35 = 5.15rem, padding centres it */
 .album-strip-wrapper {
   position: fixed;
-  bottom: 5.25rem;
+  bottom: 5.5rem;
   left: 0;
   width: 100%;
   height: 75px;
@@ -119,6 +120,7 @@ html, body {
   z-index: 1;
   display: flex;
   align-items: center;
+  padding: 0.4rem 0;
 }
 
 .album-strip {
@@ -143,9 +145,10 @@ html, body {
   100% { transform: translateX(-50%); }
 }
 
+/* DIVIDER C — bottom margin below album covers */
 .divider-c {
   position: fixed;
-  bottom: 4rem;
+  bottom: 5rem;
   left: 0;
   width: 100%;
   height: 0.5px;
@@ -155,7 +158,7 @@ html, body {
 
 .bottom-links {
   position: fixed;
-  bottom: 2.75rem;
+  bottom: 3.25rem;
   left: 0;
   width: 100%;
   display: flex;
@@ -232,10 +235,10 @@ html, body {
   color: #fff;
 }
 
-/* MOBILE — only size changes, zero position changes */
 @media (max-width: 768px) {
   .album-strip-wrapper {
     height: 55px;
+    padding: 0.3rem 0;
   }
 
   .album-strip img {
