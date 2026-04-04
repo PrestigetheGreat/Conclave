@@ -102,6 +102,17 @@
       100% { transform: translateX(-50%); }
     }
 
+    /* DIVIDER UNDER ALBUM STRIP */
+    .album-divider {
+      position: fixed;
+      top: 13rem;
+      left: 0;
+      width: 100%;
+      height: 0.5px;
+      background: rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+
     /* TICKETS MESSAGE */
     .content {
       position: fixed;
@@ -144,31 +155,31 @@
     /* DECK OF CARDS */
     .deck-section {
       position: fixed;
-      bottom: 4.5rem;
+      bottom: 4rem;
       left: 0;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: flex-end;
       z-index: 5;
-      height: 220px;
+      height: 240px;
     }
 
     .deck {
       position: relative;
-      width: 120px;
-      height: 180px;
+      width: 140px;
+      height: 210px;
     }
 
     .card {
       position: absolute;
-      width: 120px;
-      height: 180px;
+      width: 140px;
+      height: 210px;
       border-radius: 4px;
       overflow: hidden;
       cursor: pointer;
-      transition: transform 0.35s ease, z-index 0s, box-shadow 0.35s ease;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
     }
 
     .card img {
@@ -178,13 +189,14 @@
       display: block;
     }
 
+    /* event2 is centre — others fan out wider */
     .card:nth-child(1) {
-      transform: rotate(-8deg) translateX(-80px);
+      transform: rotate(-12deg) translateX(-160px);
       z-index: 1;
     }
 
     .card:nth-child(2) {
-      transform: rotate(-4deg) translateX(-40px);
+      transform: rotate(-6deg) translateX(-80px);
       z-index: 2;
     }
 
@@ -194,19 +206,19 @@
     }
 
     .card:nth-child(4) {
-      transform: rotate(4deg) translateX(40px);
+      transform: rotate(6deg) translateX(80px);
       z-index: 2;
     }
 
     .card:nth-child(5) {
-      transform: rotate(8deg) translateX(80px);
+      transform: rotate(12deg) translateX(160px);
       z-index: 1;
     }
 
     .card:hover {
-      transform: rotate(0deg) translateX(0px) scale(1.8) translateY(-20px) !important;
+      transform: rotate(0deg) translateX(0px) scale(1.9) translateY(-25px) !important;
       z-index: 100 !important;
-      box-shadow: 8px 8px 30px rgba(0,0,0,0.25);
+      box-shadow: 10px 10px 40px rgba(0,0,0,0.25);
     }
 
     /* FOOTER */
@@ -244,8 +256,14 @@
     }
 
     @media (max-width: 600px) {
+      .card:nth-child(1) { transform: rotate(-12deg) translateX(-100px); }
+      .card:nth-child(2) { transform: rotate(-6deg) translateX(-50px); }
+      .card:nth-child(3) { transform: rotate(0deg) translateX(0px); }
+      .card:nth-child(4) { transform: rotate(6deg) translateX(50px); }
+      .card:nth-child(5) { transform: rotate(12deg) translateX(100px); }
+
       .card:hover {
-        transform: rotate(0deg) translateX(0px) scale(1.4) translateY(-20px) !important;
+        transform: rotate(0deg) translateX(0px) scale(1.5) translateY(-20px) !important;
       }
 
       .footer {
@@ -290,26 +308,29 @@
     </div>
   </div>
 
+  <!-- DIVIDER UNDER ALBUM STRIP -->
+  <div class="album-divider"></div>
+
   <!-- TICKETS MESSAGE -->
   <main class="content">
-    <p class="message">No tickets allocated</p>
+    <p class="message">tickets are currently not available</p>
     <a href="https://www.eventbrite.com.au/e/conclave-rave-sydney-0703-tickets-1984103267283#organizer-card" target="_blank" class="stay-updated">stay updated</a>
   </main>
 
-  <!-- DECK OF CARDS -->
+  <!-- DECK OF CARDS — event2 is centre -->
   <div class="deck-section">
     <div class="deck">
       <div class="card">
         <img src="event1.jpg" alt="Conclave event" />
       </div>
       <div class="card">
+        <img src="event4.jpg" alt="Conclave event" />
+      </div>
+      <div class="card">
         <img src="event2.jpg" alt="Conclave event" />
       </div>
       <div class="card">
         <img src="event3.jpg" alt="Conclave event" />
-      </div>
-      <div class="card">
-        <img src="event4.jpg" alt="Conclave event" />
       </div>
       <div class="card">
         <img src="event5.jpg" alt="Conclave event" />
