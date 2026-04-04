@@ -104,14 +104,14 @@
 
     /* DIVIDER UNDER ALBUM STRIP */
     .album-divider {
-  position: fixed;
-  top: 11rem;
-  left: 0;
-  width: 100%;
-  height: 0.5px;
-  background: rgba(0,0,0,0.15);
-  z-index: 10;
-}
+      position: fixed;
+      top: 11rem;
+      left: 0;
+      width: 100%;
+      height: 0.5px;
+      background: rgba(0,0,0,0.15);
+      z-index: 10;
+    }
 
     /* TICKETS MESSAGE */
     .content {
@@ -152,19 +152,33 @@
       opacity: 0.4;
     }
 
-    /* DECK OF CARDS */
+    /* DECK SECTION — margins above and below */
     .deck-section {
       position: fixed;
-      bottom: 4rem;
+      bottom: 4.5rem;
       left: 0;
       width: 100%;
       display: flex;
-      justify-content: center;
-      align-items: flex-end;
+      flex-direction: column;
+      align-items: center;
       z-index: 5;
-      height: 240px;
     }
 
+    .deck-divider-top {
+      width: 100%;
+      height: 0.5px;
+      background: rgba(0,0,0,0.15);
+      margin-bottom: 1.5rem;
+    }
+
+    .deck-divider-bottom {
+      width: 100%;
+      height: 0.5px;
+      background: rgba(0,0,0,0.15);
+      margin-top: 1.5rem;
+    }
+
+    /* DECK OF CARDS */
     .deck {
       position: relative;
       width: 140px;
@@ -178,8 +192,9 @@
       border-radius: 4px;
       overflow: hidden;
       cursor: pointer;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
       box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .card img {
@@ -187,9 +202,9 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      pointer-events: none;
     }
 
-    /* event2 is centre — others fan out wider */
     .card:nth-child(1) {
       transform: rotate(-12deg) translateX(-160px);
       z-index: 1;
@@ -215,8 +230,18 @@
       z-index: 1;
     }
 
-    .card:hover {
-      transform: rotate(0deg) translateX(0px) scale(1.9) translateY(-25px) !important;
+    /* Desktop hover only */
+    @media (hover: hover) {
+      .card:hover {
+        transform: rotate(0deg) translateX(0px) scale(1.9) translateY(-25px) !important;
+        z-index: 100 !important;
+        box-shadow: 10px 10px 40px rgba(0,0,0,0.25);
+      }
+    }
+
+    /* Mobile tap active state */
+    .card.active {
+      transform: rotate(0deg) translateX(0px) scale(1.7) translateY(-25px) !important;
       z-index: 100 !important;
       box-shadow: 10px 10px 40px rgba(0,0,0,0.25);
     }
@@ -261,10 +286,6 @@
       .card:nth-child(3) { transform: rotate(0deg) translateX(0px); }
       .card:nth-child(4) { transform: rotate(6deg) translateX(50px); }
       .card:nth-child(5) { transform: rotate(12deg) translateX(100px); }
-
-      .card:hover {
-        transform: rotate(0deg) translateX(0px) scale(1.5) translateY(-20px) !important;
-      }
 
       .footer {
         gap: 1rem;
@@ -317,8 +338,9 @@
     <a href="https://www.eventbrite.com.au/e/conclave-rave-sydney-0703-tickets-1984103267283#organizer-card" target="_blank" class="stay-updated">stay updated</a>
   </main>
 
-  <!-- DECK OF CARDS — event2 is centre -->
+  <!-- DECK OF CARDS -->
   <div class="deck-section">
+    <div class="deck-divider-top"></div>
     <div class="deck">
       <div class="card">
         <img src="event1.jpg" alt="Conclave event" />
@@ -336,6 +358,7 @@
         <img src="event5.jpg" alt="Conclave event" />
       </div>
     </div>
+    <div class="deck-divider-bottom"></div>
   </div>
 
   <!-- FOOTER -->
@@ -344,6 +367,29 @@
     <a href="#" target="_blank" class="footer-link">TIKTOK</a>
     <p class="footer-copy">© CONCLAVE 2026</p>
   </footer>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+
+    const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
+
+    cards.forEach(card => {
+      card.addEventListener('touchstart', function(e) {
+        if (!isTouchDevice()) return;
+        e.preventDefault();
+        e.stopPropagation();
+        const isActive = this.classList.contains('active');
+        cards.forEach(c => c.classList.remove('active'));
+        if (!isActive) this.classList.add('active');
+      }, { passive: false });
+    });
+
+    document.addEventListener('touchstart', function(e) {
+      if (!e.target.closest('.card')) {
+        cards.forEach(c => c.classList.remove('active'));
+      }
+    });
+  </script>
 
 </body>
 </html>
