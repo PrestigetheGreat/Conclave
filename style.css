@@ -131,8 +131,8 @@ html, body {
 }
 
 .album-strip img {
-  width: 75px;
-  height: 75px;
+  width: 70px;
+  height: 70px;
   object-fit: cover;
   border-radius: 2px;
   flex-shrink: 0;
