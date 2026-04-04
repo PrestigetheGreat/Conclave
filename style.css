@@ -13,6 +13,7 @@ html, body {
   overflow: hidden;
 }
 
+/* VIDEO */
 .video-container {
   position: fixed;
   top: 0;
@@ -40,6 +41,7 @@ html, body {
   background: rgba(255, 255, 255, 0.72);
 }
 
+/* TOP CORNERS */
 .top-left {
   position: fixed;
   top: 1.25rem;
@@ -64,7 +66,8 @@ html, body {
   opacity: 0.5;
 }
 
-.top-divider {
+/* DIVIDER UNDER AUS 2026 / CONCLAVE — top of ticket bounce zone */
+.divider-top {
   position: fixed;
   top: 3rem;
   left: 0;
@@ -74,9 +77,32 @@ html, body {
   z-index: 10;
 }
 
+/* TICKET BOUNCE ZONE — invisible container between divider-top and divider-mid */
+.ticket-zone {
+  position: fixed;
+  top: 3rem;
+  left: 0;
+  width: 100%;
+  height: 30vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* DIVIDER ABOVE ALBUM COVERS — bottom of ticket bounce zone */
+.divider-mid {
+  position: fixed;
+  top: calc(3rem + 30vh);
+  left: 0;
+  width: 100%;
+  height: 0.5px;
+  background: rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+/* ALBUM STRIP — sits just below divider-mid with 0.5x breathing room */
 .album-strip-wrapper {
   position: fixed;
-  top: 3.5rem;
+  top: calc(3rem + 30vh + 0.5rem);
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -104,9 +130,10 @@ html, body {
   100% { transform: translateX(-50%); }
 }
 
-.album-divider {
+/* DIVIDER BELOW ALBUM COVERS */
+.divider-album {
   position: fixed;
-  top: 11rem;
+  top: calc(3rem + 30vh + 0.5rem + 75px + 0.5rem);
   left: 0;
   width: 100%;
   height: 0.5px;
@@ -114,12 +141,13 @@ html, body {
   z-index: 10;
 }
 
+/* TAGLINE — centred in remaining space */
 .content {
   position: fixed;
-  top: 11rem;
+  top: calc(3rem + 30vh + 0.5rem + 75px + 0.5rem);
   left: 0;
   width: 100vw;
-  height: calc(100vh - 11rem - 5rem);
+  height: calc(100vh - 3rem - 30vh - 0.5rem - 75px - 0.5rem - 5rem);
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -137,6 +165,7 @@ html, body {
   opacity: 0.55;
 }
 
+/* PLAYLIST LINK */
 .bottom-links {
   position: fixed;
   bottom: 2.5rem;
@@ -163,6 +192,7 @@ html, body {
   opacity: 1;
 }
 
+/* FOOTER */
 .footer {
   position: fixed;
   bottom: 1.25rem;
@@ -196,6 +226,7 @@ html, body {
   opacity: 0.35;
 }
 
+/* FLOATING TICKET */
 .floating-ticket {
   position: fixed;
   z-index: 100;
