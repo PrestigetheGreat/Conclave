@@ -124,10 +124,11 @@ html, body {
 }
 
 .album-strip {
-  display: flex;
+  display: inline-flex;
   gap: 8px;
   width: max-content;
-  animation: scrollLeft 18s linear infinite;
+  animation: scrollLeft 25s linear infinite;
+  will-change: transform;
 }
 
 .album-strip img {
