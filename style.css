@@ -4,25 +4,42 @@
   box-sizing: border-box;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  color: #000;
-  font-family: 'Courier Prime', Courier, monospace;
-  overflow: hidden;
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
+body {
+  width: 100%;
+  color: #000;
+  font-family: 'Courier Prime', Courier, monospace;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* SECTIONS */
+.section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* ===================== */
+/* SECTION 1 — MAIN      */
+/* ===================== */
+
 .video-container {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: 0;
 }
 
-#bg-video {
+.video-container video {
   position: absolute;
   top: 0;
   left: 0;
@@ -37,11 +54,11 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.42);
 }
 
 .top-left {
-  position: fixed;
+  position: absolute;
   top: 1.25rem;
   left: 1.5rem;
   z-index: 10;
@@ -53,7 +70,7 @@ html, body {
 }
 
 .top-right {
-  position: fixed;
+  position: absolute;
   top: 1.25rem;
   right: 1.5rem;
   z-index: 10;
@@ -65,7 +82,7 @@ html, body {
 }
 
 .divider-a {
-  position: fixed;
+  position: absolute;
   top: 3rem;
   left: 0;
   width: 100%;
@@ -75,10 +92,10 @@ html, body {
 }
 
 .content {
-  position: fixed;
+  position: absolute;
   top: 3rem;
   left: 0;
-  width: 100vw;
+  width: 100%;
   bottom: 12rem;
   z-index: 2;
   display: flex;
@@ -95,27 +112,22 @@ html, body {
   opacity: 0.55;
 }
 
-/* DIVIDER B — top margin above album covers */
 .divider-b {
-  position: fixed;
+  position: absolute;
   bottom: 10rem;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 0.5px;
   background: rgba(0,0,0,0.15);
   z-index: 10;
 }
 
-/* ALBUM STRIP — centred between divider-b and divider-c */
-/* divider-b = 10rem, divider-c = 5rem, gap = 5rem */
-/* strip height = 75px ≈ 4.7rem, midpoint from bottom = 7.35rem */
-/* wrapper bottom = 7.35 - 2.35 = 5.15rem, padding centres it */
 .album-strip-wrapper {
-  position: fixed;
+  position: absolute;
   bottom: 5.5rem;
   left: 0;
   width: 100%;
-  height: 75px;
+  height: 70px;
   overflow: hidden;
   z-index: 1;
   display: flex;
@@ -138,7 +150,6 @@ html, body {
   border-radius: 2px;
   flex-shrink: 0;
   opacity: 0.75;
-  display: block;
 }
 
 @keyframes scrollLeft {
@@ -146,19 +157,18 @@ html, body {
   100% { transform: translateX(-50%); }
 }
 
-/* DIVIDER C — bottom margin below album covers */
 .divider-c {
-  position: fixed;
+  position: absolute;
   bottom: 5rem;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 0.5px;
   background: rgba(0,0,0,0.15);
   z-index: 10;
 }
 
 .bottom-links {
-  position: fixed;
+  position: absolute;
   bottom: 3.25rem;
   left: 0;
   width: 100%;
@@ -179,12 +189,10 @@ html, body {
   transition: opacity 0.2s ease;
 }
 
-.playlist-link:hover {
-  opacity: 1;
-}
+.playlist-link:hover { opacity: 1; }
 
 .footer {
-  position: fixed;
+  position: absolute;
   bottom: 1.25rem;
   left: 0;
   width: 100%;
@@ -205,9 +213,7 @@ html, body {
   transition: opacity 0.2s ease;
 }
 
-.footer-link:hover {
-  opacity: 1;
-}
+.footer-link:hover { opacity: 1; }
 
 .footer-copy {
   font-size: 0.55rem;
@@ -217,7 +223,7 @@ html, body {
 }
 
 .floating-ticket {
-  position: fixed;
+  position: absolute;
   z-index: 100;
   font-family: 'Courier Prime', Courier, monospace;
   font-size: 0.65rem;
@@ -236,19 +242,272 @@ html, body {
   color: #fff;
 }
 
+/* ===================== */
+/* SECTION 2 — TICKETS   */
+/* ===================== */
+
+.tickets-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.tickets-video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tickets-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.tickets-top-left {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.5rem;
+  z-index: 10;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: #fff;
+  text-transform: uppercase;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.tickets-top-left:hover { opacity: 1; }
+
+.tickets-top-right {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 10;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: #fff;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.tickets-top-divider {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  width: 100%;
+  height: 0.5px;
+  background: rgba(255,255,255,0.25);
+  z-index: 10;
+}
+
+.tickets-album-strip-wrapper {
+  position: absolute;
+  top: 3.5rem;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  overflow: hidden;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+.tickets-album-strip {
+  display: inline-flex;
+  gap: 8px;
+  width: max-content;
+  animation: scrollLeft 25s linear infinite;
+  will-change: transform;
+}
+
+.tickets-album-strip img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 2px;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.tickets-album-divider {
+  position: absolute;
+  top: 8rem;
+  left: 0;
+  width: 100%;
+  height: 0.5px;
+  background: rgba(255,255,255,0.25);
+  z-index: 10;
+}
+
+.tickets-content {
+  position: absolute;
+  top: 8rem;
+  left: 0;
+  width: 100%;
+  bottom: 18rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+.tickets-message {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  display: block;
+  white-space: nowrap;
+}
+
+.ticket-link {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.5);
+  padding: 0.75rem 1.25rem;
+  background: transparent;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ticket-link:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* DECK */
+.deck-section {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+.deck-divider-top {
+  width: 100%;
+  height: 0.5px;
+  background: rgba(255,255,255,0.25);
+  margin-bottom: 1.25rem;
+}
+
+.deck-divider-bottom {
+  width: 100%;
+  height: 0.5px;
+  background: rgba(255,255,255,0.25);
+  margin-top: 1.25rem;
+}
+
+.deck {
+  position: relative;
+  width: 140px;
+  height: 210px;
+}
+
+.card {
+  position: absolute;
+  width: 140px;
+  height: 210px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.card:nth-child(1) { transform: rotate(-12deg) translateX(-160px); z-index: 1; }
+.card:nth-child(2) { transform: rotate(-6deg) translateX(-80px); z-index: 2; }
+.card:nth-child(3) { transform: rotate(0deg) translateX(0px); z-index: 3; }
+.card:nth-child(4) { transform: rotate(6deg) translateX(80px); z-index: 2; }
+.card:nth-child(5) { transform: rotate(12deg) translateX(160px); z-index: 1; }
+
+@media (hover: hover) {
+  .card:hover {
+    transform: rotate(0deg) translateX(0px) scale(1.9) translateY(-25px) !important;
+    z-index: 100 !important;
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.5);
+  }
+}
+
+.card.active {
+  transform: rotate(0deg) translateX(0px) scale(1.7) translateY(-25px) !important;
+  z-index: 100 !important;
+  box-shadow: 10px 10px 40px rgba(0,0,0,0.5);
+}
+
+.tickets-footer {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 10;
+  padding: 0 1.5rem;
+}
+
+.tickets-footer-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.tickets-footer-link:hover { opacity: 1; }
+
+.tickets-footer-copy {
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: #fff;
+  opacity: 0.35;
+}
+
 @media (max-width: 768px) {
-  .album-strip-wrapper {
-    height: 50px;
-    padding: 0.3rem 0;
-  }
-
-  .album-strip img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .footer {
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
+  .album-strip img { width: 55px; height: 55px; }
+  .tickets-album-strip img { width: 55px; height: 55px; }
+  .footer { gap: 1rem; flex-wrap: wrap; }
+  .tickets-footer { gap: 1rem; flex-wrap: wrap; }
+  .card:nth-child(1) { transform: rotate(-12deg) translateX(-100px); }
+  .card:nth-child(2) { transform: rotate(-6deg) translateX(-50px); }
+  .card:nth-child(3) { transform: rotate(0deg) translateX(0px); }
+  .card:nth-child(4) { transform: rotate(6deg) translateX(50px); }
+  .card:nth-child(5) { transform: rotate(12deg) translateX(100px); }
+  .card.active { transform: rotate(0deg) translateX(0px) scale(1.4) translateY(-20px) !important; }
+  .ticket-link { font-size: 0.55rem; padding: 0.6rem 0.75rem; letter-spacing: 0.1em; }
 }
