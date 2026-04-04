@@ -66,8 +66,8 @@ html, body {
   opacity: 0.5;
 }
 
-/* DIVIDER UNDER AUS 2026 / CONCLAVE — top of ticket bounce zone */
-.divider-top {
+/* DIVIDER A — under AUS 2026 / CONCLAVE™ — top of TICKETS zone */
+.divider-a {
   position: fixed;
   top: 3rem;
   left: 0;
@@ -77,21 +77,32 @@ html, body {
   z-index: 10;
 }
 
-/* TICKET BOUNCE ZONE — invisible container between divider-top and divider-mid */
-.ticket-zone {
+/* TAGLINE — centred in upper half */
+.content {
   position: fixed;
   top: 3rem;
   left: 0;
-  width: 100%;
-  height: 30vh;
-  z-index: 0;
-  pointer-events: none;
+  width: 100vw;
+  height: 45vh;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-/* DIVIDER ABOVE ALBUM COVERS — bottom of ticket bounce zone */
-.divider-mid {
+.tagline {
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  color: #000;
+  text-transform: lowercase;
+  opacity: 0.55;
+}
+
+/* DIVIDER B — above album covers */
+.divider-b {
   position: fixed;
-  top: calc(3rem + 30vh);
+  top: calc(3rem + 45vh);
   left: 0;
   width: 100%;
   height: 0.5px;
@@ -99,10 +110,10 @@ html, body {
   z-index: 10;
 }
 
-/* ALBUM STRIP — sits just below divider-mid with 0.5x breathing room */
+/* ALBUM STRIP — 0.5rem below divider-b */
 .album-strip-wrapper {
   position: fixed;
-  top: calc(3rem + 30vh + 0.5rem);
+  top: calc(3rem + 45vh + 0.5rem);
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -130,39 +141,15 @@ html, body {
   100% { transform: translateX(-50%); }
 }
 
-/* DIVIDER BELOW ALBUM COVERS */
-.divider-album {
+/* DIVIDER C — below album covers, above playlist */
+.divider-c {
   position: fixed;
-  top: calc(3rem + 30vh + 0.5rem + 75px + 0.5rem);
+  top: calc(3rem + 45vh + 0.5rem + 75px + 0.5rem);
   left: 0;
   width: 100%;
   height: 0.5px;
   background: rgba(0,0,0,0.15);
   z-index: 10;
-}
-
-/* TAGLINE — centred in remaining space */
-.content {
-  position: fixed;
-  top: calc(3rem + 30vh + 0.5rem + 75px + 0.5rem);
-  left: 0;
-  width: 100vw;
-  height: calc(100vh - 3rem - 30vh - 0.5rem - 75px - 0.5rem - 5rem);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-}
-
-.tagline {
-  font-size: 0.65rem;
-  letter-spacing: 0.35em;
-  color: #000;
-  text-transform: lowercase;
-  opacity: 0.55;
 }
 
 /* PLAYLIST LINK */
