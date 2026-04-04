@@ -14,8 +14,8 @@ if (video) {
 const ticket = document.getElementById('floating-ticket');
 
 if (ticket) {
-  const topBoundary = window.innerHeight * 0.05;
-  const bottomBoundary = window.innerHeight * 0.48;
+  const topBoundary = window.innerHeight * 0.06;
+  const bottomBoundary = window.innerHeight - (window.innerHeight * 0.32);
   const leftBoundary = 10;
   const rightBoundary = window.innerWidth - 120;
 
