@@ -77,13 +77,13 @@ html, body {
   z-index: 10;
 }
 
-/* TAGLINE — centred in upper zone */
+/* TAGLINE — centred in the main open zone */
 .content {
   position: fixed;
   top: 3rem;
   left: 0;
   width: 100vw;
-  height: calc(100vh - 3rem - 10rem);
+  bottom: 9rem;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -99,10 +99,10 @@ html, body {
   opacity: 0.55;
 }
 
-/* DIVIDER B — above album covers */
+/* DIVIDER B — top margin above album covers */
 .divider-b {
   position: fixed;
-  bottom: 8.5rem;
+  bottom: 8rem;
   left: 0;
   width: 100%;
   height: 0.5px;
@@ -110,14 +110,15 @@ html, body {
   z-index: 10;
 }
 
-/* ALBUM STRIP */
+/* ALBUM STRIP — locked between divider-b and divider-c */
 .album-strip-wrapper {
   position: fixed;
-  bottom: 5rem;
+  bottom: 5.25rem;
   left: 0;
   width: 100%;
   overflow: hidden;
   z-index: 1;
+  height: 75px;
 }
 
 .album-strip {
@@ -125,6 +126,7 @@ html, body {
   gap: 8px;
   width: max-content;
   animation: scrollLeft 18s linear infinite;
+  height: 100%;
 }
 
 .album-strip img {
@@ -141,10 +143,10 @@ html, body {
   100% { transform: translateX(-50%); }
 }
 
-/* DIVIDER C — below album covers */
+/* DIVIDER C — bottom margin below album covers */
 .divider-c {
   position: fixed;
-  bottom: 3.5rem;
+  bottom: 4.25rem;
   left: 0;
   width: 100%;
   height: 0.5px;
@@ -152,10 +154,10 @@ html, body {
   z-index: 10;
 }
 
-/* PLAYLIST LINK */
+/* PLAYLIST LINK — locked above footer */
 .bottom-links {
   position: fixed;
-  bottom: 2.5rem;
+  bottom: 2.75rem;
   left: 0;
   width: 100%;
   display: flex;
@@ -236,21 +238,22 @@ html, body {
 
 /* MOBILE */
 @media (max-width: 768px) {
+  .album-strip-wrapper {
+    height: 55px;
+    bottom: 5.5rem;
+  }
+
   .album-strip img {
     width: 55px;
     height: 55px;
   }
 
-  .album-strip-wrapper {
-    bottom: 5.5rem;
-  }
-
   .divider-b {
-    bottom: 9rem;
+    bottom: 8.5rem;
   }
 
   .divider-c {
-    bottom: 4rem;
+    bottom: 4.5rem;
   }
 
   .bottom-links {
