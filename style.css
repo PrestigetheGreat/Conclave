@@ -4,19 +4,21 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 body {
-  width: 100%;
   color: #000;
   font-family: 'Courier Prime', Courier, monospace;
   overflow-y: scroll;
   overflow-x: hidden;
-  margin: 0;
-  padding: 0;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 /* SECTIONS */
@@ -24,10 +26,11 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
   scroll-snap-align: start;
-  margin: 0;
-  padding: 0;
+  flex-shrink: 0;
 }
 
 /* ===================== */
@@ -413,7 +416,6 @@ body {
   color: #000;
 }
 
-/* DECK */
 .deck-section {
   position: absolute;
   bottom: 3.5rem;
@@ -528,4 +530,5 @@ body {
   .card:nth-child(5) { transform: rotate(12deg) translateX(100px); }
   .card.active { transform: rotate(0deg) translateX(0px) scale(1.4) translateY(-20px) !important; }
   .ticket-link { font-size: 0.55rem; padding: 0.6rem 0.75rem; letter-spacing: 0.1em; }
+  .tickets-message { white-space: normal; }
 }
