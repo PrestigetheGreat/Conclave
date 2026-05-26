@@ -117,9 +117,26 @@
     <div class="tickets-album-divider"></div>
 
     <div class="tickets-content">
-      <p class="tickets-message">NO TICKETS FOUND</p>
-      <a href="https://www.eventbrite.com.au/e/conclave-rave-sydney-0703-tickets-1984103267283#organizer-card" target="_blank" class="ticket-link">CONCLAVE RAVE SYDNEY [07.03.2026] TICKETS</a>
-    </div>
+  <p class="tickets-message">NO TICKETS FOUND</p>
+  <a href="https://www.eventbrite.com.au/e/conclave-rave-sydney-0703-tickets-1984103267283" target="_blank" class="ticket-link" id="eventbrite-widget-trigger-1984103267283">CONCLAVE RAVE SYDNEY [07.03.2026] TICKETS</a>
+</div>
+
+<script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+<script>
+  window.addEventListener('load', function() {
+    if (window.EBWidgets) {
+      window.EBWidgets.createWidget({
+        widgetType: 'checkout',
+        eventId: '1984103267283',
+        modal: true,
+        modalTriggerElementId: 'eventbrite-widget-trigger-1984103267283',
+        onOrderComplete: function() {
+          console.log('Order complete!');
+        }
+      });
+    }
+  });
+</script>
 
     <div class="deck-section">
       <div class="deck-divider-top"></div>
