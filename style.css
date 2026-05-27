@@ -527,16 +527,21 @@ body {
   .card.active { transform: rotate(0deg) translateX(0px) scale(1.4) translateY(-20px) !important; }
   .ticket-link { font-size: 0.55rem; padding: 0.6rem 0.75rem; letter-spacing: 0.1em; }
   .tickets-message { white-space: normal; }
-}.ticket-cd {
+.ticket-cd {
   width: 160px;
   height: 160px;
   object-fit: contain;
   cursor: pointer;
   opacity: 0.9;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  animation: spinAntiClockwise 8s linear infinite;
+  transition: opacity 0.2s ease;
 }
 
 .ticket-cd:hover {
   opacity: 1;
-  transform: scale(1.05);
+}
+
+@keyframes spinAntiClockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
 }
