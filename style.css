@@ -392,6 +392,7 @@ body {
   text-transform: uppercase;
   display: block;
   white-space: nowrap;
+  font-weight: 700;
 }
 
 .ticket-cd {
