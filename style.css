@@ -367,7 +367,7 @@ body {
   display: none;
 }
 
-.tickets-content {
+..tickets-content {
   position: absolute;
   top: 8rem;
   left: 0;
@@ -381,6 +381,7 @@ body {
   text-align: center;
   gap: 1.5rem;
   padding: 1rem 2rem;
+  overflow: hidden;
 }
 
 .tickets-message {
@@ -534,6 +535,9 @@ body {
   cursor: pointer;
   opacity: 0.9;
   transition: opacity 0.2s ease, transform 0.2s ease;
+  display: block;
+  position: relative;
+  z-index: 4;
 }
 
 .ticket-cd:hover {
